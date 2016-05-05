@@ -1,2 +1,3 @@
 # OpenVM
-OpenWSN-ready Visual Machine Distribution
+
+OpenWSN-ready Virtual Machine Distribution
