@@ -80,6 +80,7 @@ Vagrant.configure(2) do |config|
     sudo apt-get install -y scons
     cd ../openwsn-sw/software/openvisualizer
     sudo apt-get install -y python-pip
+    sudo apt-get install -y python-tk
     sudo pip install bottle
     sudo pip install PyDispatcher
     sudo pip install intelhex
