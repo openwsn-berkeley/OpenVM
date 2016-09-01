@@ -97,7 +97,7 @@ Vagrant.configure(2) do |config|
 	sudo mv msp430-gcc-support-files/include/* /opt/msp430-toolchain/msp430-elf/include
 	sudo rm -rf *	#clean Downloads.dir
 	cd ..
-	echo "export PATH=\$PATH+=/opt/msp430-toolchain/bin" >> .bashrc
+	echo "export PATH=\$PATH:/opt/msp430-toolchain/bin" >> .bashrc
 	sudo apt-get install -y lib32z1
 	sudo apt-get install -y lib32stdc++6
   SHELL
