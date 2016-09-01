@@ -95,5 +95,8 @@ Vagrant.configure(2) do |config|
 	sudo mkdir -p /opt/msp430-toolchain && sudo tar xvjf msp430-gcc-4.1.0.0_linux32.tar.bz2 -C /opt/msp430-toolchain --strip-components=1
 	sudo mv msp430-gcc-support-files/include/*.ld /opt/msp430-toolchain/msp430-elf/lib/ldscripts
 	sudo mv msp430-gcc-support-files/include/* /opt/msp430-toolchain/msp430-elf/include
+	sudo rm -rf *	#clean Downloads.dir
+	cd ..
+	echo "export PATH=\$PATH+=/opt/msp430-toolchain/bin" >> .bashrc
   SHELL
 end
