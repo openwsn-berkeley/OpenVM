@@ -83,6 +83,11 @@ Vagrant.configure(2) do |config|
     sudo apt-get install -y python-tk
     sudo pip install bottle
     sudo pip install PyDispatcher
+    sudo pip install Sphinx
+    sudo pip install netifaces
+    sudo pip install yappi
+    sudo pip install pyzmq
+    sudo pip install openwsn-coap
     sudo pip install intelhex
     sudo apt-get install -y wireshark
     sudo apt-get update
