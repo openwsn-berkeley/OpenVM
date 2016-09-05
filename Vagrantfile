@@ -46,12 +46,12 @@ Vagrant.configure(2) do |config|
   config.vm.provider "virtualbox" do |vb|
     # Display the VirtualBox GUI when booting the machine
     vb.gui = false
-    
+
     # Customize the amount of memory on the VM:
     # vb.memory = "1024"
     vb.customize ["modifyvm", :id, "--usb", "on"]
     vb.customize ["modifyvm", :id, "--usbehci", "on"]
-    
+
   end
   #
   # View the documentation for the provider you are using for more
@@ -70,7 +70,7 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", inline: <<-SHELL
     sudo apt-get update
     sudo apt-get install -y git
-    mkdir openwsn 
+    mkdir openwsn
     cd ./openwsn/
     git clone https://github.com/openwsn-berkeley/openwsn-fw.git
     git clone https://github.com/openwsn-berkeley/openwsn-sw.git
@@ -93,5 +93,17 @@ Vagrant.configure(2) do |config|
     sudo apt-get update
     sudo apt-get install -y gcc-arm-none-eabi
     sudo apt-get install -y gcc-msp430
+    cd ../../../../Downloads
+    wget http://software-dl.ti.com/msp430/msp430_public_sw/mcu/msp430/MSPGCC/latest/exports/msp430-gcc-support-files-1.191.zip &
+    wget http://software-dl.ti.com/msp430/msp430_public_sw/mcu/msp430/MSPGCC/latest/exports/msp430-gcc-4.1.0.0_linux32.tar.bz2
+	unzip msp430-gcc-support-files-1.191.zip &
+	sudo mkdir -p /opt/msp430-toolchain && sudo tar xvjf msp430-gcc-4.1.0.0_linux32.tar.bz2 -C /opt/msp430-toolchain --strip-components=1
+	sudo mv msp430-gcc-support-files/include/*.ld /opt/msp430-toolchain/msp430-elf/lib/ldscripts
+	sudo mv msp430-gcc-support-files/include/* /opt/msp430-toolchain/msp430-elf/include
+	sudo rm -rf *	#clean Downloads.dir
+	cd ..
+	echo "export PATH=\$PATH:/opt/msp430-toolchain/bin" >> .bashrc
+	sudo apt-get install -y lib32z1
+	sudo apt-get install -y lib32stdc++6
   SHELL
 end
