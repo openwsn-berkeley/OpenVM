@@ -71,7 +71,7 @@ Vagrant.configure(2) do |config|
     
     wget https://raw.githubusercontent.com/openwsn-berkeley/OpenVM/master/grub
     sudo cp /etc/default/grub /etc/default/grub_origin
-    sudo mv grup /etc/default/grub
+    sudo mv grup /etc/default/
     sudo update-grub
     
     sudo apt-get update
