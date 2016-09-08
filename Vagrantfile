@@ -68,6 +68,11 @@ Vagrant.configure(2) do |config|
   # Puppet, Chef, Ansible, Salt, and Docker are also available. Please see the
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
+    
+    wget https://github.com/openwsn-berkeley/OpenVM/blob/master/grub
+    cp /etc/default/grub /etc/default/grub_origin
+    cp grup /etc/default/grub
+    
     sudo apt-get update
     sudo apt-get install -y git
     mkdir openwsn 
