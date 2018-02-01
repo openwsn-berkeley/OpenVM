@@ -32,8 +32,10 @@ Note: the VBoxGuestAddtions folder name may different according to the user vers
 
 ## Install VMware Tools (optional)
 
-Make sure that in the VM preferences you add the CD Unit. Without it VMWare tools will not install. 
+Make sure that in the VM preferences you add the CD Unit. Without it VMWare tools will not install.
+
 follow here: https://kb.vmware.com/selfservice/microsites/search.do?language=en_US&cmd=displayKC&externalId=1018377.
+
 follow here for Ubuntu guest: https://kb.vmware.com/s/article/1022525
 
 ## Shooting Board
