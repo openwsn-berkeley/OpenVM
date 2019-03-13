@@ -79,12 +79,12 @@ Vagrant.configure(2) do |config|
     mkdir openwsn
     cd ./openwsn/
     git clone https://github.com/openwsn-berkeley/openwsn-fw.git
-    git clone https://github.com/openwsn-berkeley/openwsn-sw.git
+    git clone https://github.com/openwsn-berkeley/openvisualizer.git
     git clone https://github.com/openwsn-berkeley/coap.git
     cd ./openwsn-fw/
     sudo apt-get install -y python-dev
     sudo apt-get install -y scons
-    cd ../openwsn-sw/software/openvisualizer
+    cd ../openvisualizer
     sudo apt-get install -y python-pip
     sudo apt-get install -y python-tk
     sudo pip install bottle
@@ -95,18 +95,23 @@ Vagrant.configure(2) do |config|
     sudo pip install pyzmq
     sudo pip install openwsn-coap
     sudo pip install intelhex
+    sudo pip install pylint
+    sudo pip install pycryptodome
+    sudo pip install cbor
+    sudo pip install hkdf
+    sudo pip install paho-mqtt
     sudo apt-get install -y wireshark
     sudo apt-get update
     sudo apt-get install -y gcc-arm-none-eabi
     sudo apt-get install -y gcc-msp430
-    cd ../../../../Downloads
+    cd ../../Downloads
     wget http://software-dl.ti.com/msp430/msp430_public_sw/mcu/msp430/MSPGCC/latest/exports/msp430-gcc-support-files-1.191.zip &
     wget http://software-dl.ti.com/msp430/msp430_public_sw/mcu/msp430/MSPGCC/latest/exports/msp430-gcc-4.1.0.0_linux32.tar.bz2
     unzip msp430-gcc-support-files-1.191.zip &
     sudo mkdir -p /opt/msp430-toolchain && sudo tar xvjf msp430-gcc-4.1.0.0_linux32.tar.bz2 -C /opt/msp430-toolchain --strip-components=1
     sudo mv msp430-gcc-support-files/include/*.ld /opt/msp430-toolchain/msp430-elf/lib/ldscripts
     sudo mv msp430-gcc-support-files/include/* /opt/msp430-toolchain/msp430-elf/include
-    sudo rm -rf *	#clean Downloads.dir
+    sudo rm -rf *   #clean Downloads.dir
     cd ..
     echo "export PATH=\$PATH:/opt/msp430-toolchain/bin" >> .bashrc
     sudo apt-get install -y lib32z1
