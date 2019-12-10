@@ -12,7 +12,8 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "box-cutter/ubuntu1404-desktop"
+  config.vm.box = "peru/ubuntu-18.04-desktop-amd64"
+  config.vm.box_version = "20190901.01"
   config.ssh.insert_key = false
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -87,20 +88,7 @@ Vagrant.configure(2) do |config|
     cd ../openvisualizer
     sudo apt-get install -y python-pip
     sudo apt-get install -y python-tk
-    sudo pip install bottle
-    sudo pip install PyDispatcher
-    sudo pip install Sphinx
-    sudo pip install netifaces
-    sudo pip install yappi
-    sudo pip install pyzmq
-    sudo pip install openwsn-coap
-    sudo pip install intelhex
-    sudo pip install pylint
-    sudo pip install pycryptodome
-    sudo pip install cbor
-    sudo pip install hkdf
-    sudo pip install paho-mqtt
-    sudo apt-get install -y wireshark
+    sudo pip install -r requirements.txt
     sudo apt-get update
     sudo apt-get install -y gcc-arm-none-eabi
     sudo apt-get install -y gcc-msp430
